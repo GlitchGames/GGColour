@@ -23,6 +23,45 @@ local colourChart = GGColour:new()
 local r, g, b, a = colourChart:fromName( "ForestGreen" )
 ```
 
+##### Get a named colour as a table
+```lua
+local colour = colourChart:fromName( "Tomato", true )
+```
+
+##### Use a named colour for a display object
+```lua
+local back = display.newRect( 0, 0, display.contentWidth, display.contentHeight )
+back:setFillColor( colourChart:fromName( "Tomato" ) )
+```
+
+##### Use a hex colour for a display object
+```lua
+local back = display.newRect( 0, 0, display.contentWidth, display.contentHeight )
+back:setFillColor( colourChart:fromHex( "6495ed" ) )
+```
+
+##### Use a gradient for a display object
+```lua
+local gradient = graphics.newGradient( colourChart:fromName( "SkyBlue", true ), colourChart:fromName( "MidnightBlue", true ), "up" )
+local back = display.newRect( 0, 0, display.contentWidth, display.contentHeight )
+back:setFillColor( gradient )
+```
+
+##### Create a colour palette
+```lua
+local palette = {}
+palette[ "red" ] = colourChart:fromName( "Tomato", true )
+palette[ "green" ] = colourChart:fromName( "ForestGreen", true )
+palette[ "blue" ] = colourChart:fromHex( "6495ed", true )
+colourChart:addPalette( "default", palette )
+```
+
+##### Use a named colour from a palette for a display object
+```lua
+local back = display.newRect( 0, 0, display.contentWidth, display.contentHeight )
+back:setFillColor( colourChart:fromName( "red", false, "default" ) )
+```
+
 ##### Print out all available named colours
 ```lua
 for name, rgb in pairs( colourChart:getAvailableColours() ) do
