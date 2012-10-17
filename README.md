@@ -18,7 +18,7 @@ local GGColour = require( "GGColour" )
 local colourChart = GGColour:new()
 ```
 
-##### Get a named colour ( case-insensitive )
+##### Get a named colour
 ```lua
 local r, g, b, a = colourChart:fromName( "ForestGreen" )
 ```
