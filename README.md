@@ -74,9 +74,3 @@ end
 colourChart:destroy()
 colourChart = nil
 ```
-
-Update History
--------------------------
-
-##### 0.1
-Initial release
