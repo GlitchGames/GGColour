@@ -18,6 +18,16 @@ local GGColour = require( "GGColour" )
 local colourChart = GGColour:new()
 ```
 
+##### Load up some colors. The 'otherRGB.json' set is included with this library.
+```lua
+colourChart:loadColours( "otherRGB.json" )
+```
+
+##### Save out the current colours to a file.
+```lua
+colourChart:saveColours( "customColours.json" )
+```
+
 ##### Get a named colour
 ```lua
 local r, g, b, a = colourChart:fromName( "ForestGreen" )
