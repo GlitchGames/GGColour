@@ -191,6 +191,40 @@ function GGColour:saveColours( path )
 
 end
 
+--- Load a palette from a file.
+-- @param name The name of the palette.
+-- @param path The path to the file.
+-- @param baseDir The base directory of the file. Optional, defaults to system.ResourceDirectory.
+function GGColour:loadPalette( name, path, baseDir )
+
+	local path = system.pathForFile( path, baseDir or system.ResourceDirectory )
+
+	if path then
+
+		local file = io.open( path, "r" )
+		
+		if file then
+			
+			local data = file:read( "*a" ) or "{}"
+			
+			local palette = json.decode( data ) or {}
+
+			for k, v in pairs( palette ) do
+				palette[ k ] = self:fromName( v, true )
+			end
+
+			self:addPalette( name, palette )
+
+			io.close( file )
+
+		end
+		
+		file = nil
+
+	end
+
+end
+
 --- Destroys this GGColour object.
 function GGColour:destroy()
 	self.palettes = nil

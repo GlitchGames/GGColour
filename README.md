@@ -65,6 +65,10 @@ palette[ "green" ] = colourChart:fromName( "ForestGreen", true )
 palette[ "blue" ] = colourChart:fromHex( "6495ed", true )
 colourChart:addPalette( "default", palette )
 ```
+##### Load a colour palette from a file
+```lua
+colourChart:loadPalette( "sample", "samplePalette.json" )
+```
 
 ##### Use a named colour from a palette for a display object
 ```lua
